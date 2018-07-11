@@ -4,6 +4,16 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
+    Created on : 11 juil. 2018, 10:32:28
+    Author     : Administrateur
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
     Created on : 9 juil. 2018, 12:37:04
     Author     : Administrateur
 */
@@ -26,6 +36,11 @@ and open the template in the editor.
     /*****/
 
 }
+.sapacediv{
+    
+    padding-top: 10%;
+    padding-bottom: 10%
+}
 .design input[type=submit]:hover{
     opacity: 0.5;
     background-color: #deeff7;
@@ -38,30 +53,46 @@ input{
     border:0.5px #D4D4D4;
 }
 .mainBox{
-    width: 50%;
+    width: 80%;
     /*padding-left: 40%;*/
     border: 1px solid #d43972;
+    
     text-align: center;
-    margin-left: 27%;
+    margin-left: 10%;
     margin-top: 5%;
     box-shadow: 4px 4px 4px #d43972;
+}
+.divTitre{
+    background:  no-repeat url("image/distribution-technologie-digital2.jpg");
+    
+    padding-top: 16%;
+    padding-bottom: 5%;
 }
 .hdiv{
     text-shadow: 4px 4px 4px #aaa;
     font-family: 'Gaegu', cursive;
+    font-size: 70px ;
+    
 }
 
 .parag p{
-
-    font-family: 'Taviraj', serif !important;
-    font-size: 48px;
+    
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: 'Gaegu', cursive;
+    font-family: 'Satisfy', cursive;
+    font-size: 25px;
+    padding-left: 10%;
+    padding-right: 10%;
+    
 }
 #nav {
-    padding: 0; margin: 0;
+    padding: 0;
+    margin: 0;
     text-align: center; /* centrer le texte */
 }
 #nav li {
-    display: inline;
+    display: inline-block;
     list-style: none;
 }
 #nav a {
@@ -70,14 +101,27 @@ input{
     color: #76da76;
     text-decoration: blink;
     font-style: italic;
-    /*text-shadow: 4px 4px 4px #76da76;*/
+    font-size: 25px;
+    text-shadow: 4px 4px 4px #76da76;
 }
-.transform:hover{
-    /*transform: rotate(100deg)scale(1);*//*2D*/
+/*.transform:hover{
+    transform: rotate(100deg)scale(1);2D
     transform: rotate(100deg)scale(2);
-    /*transform: perspective(100px)rotateY(45deg);*//*3D*/
-}
+    transform: perspective(100px)rotateY(45deg);3D
+}*/
+
 .aimage img {
     width: 50px;
     height: 50px;
+    
+}
+.divPied{
+    display: inline-block;
+    
+}
+.large30{
+	width: 50%;
+	float: left;
+	padding-bottom: 100px;
+        
 }

@@ -7,6 +7,7 @@ package atos.shop.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrateur
  */
-@WebServlet(name = "CookieServlet", urlPatterns = {"/CookieServlet"})
+@WebServlet(name = "CookieServlet", urlPatterns = {"/CookieServlet"}) //_Template.jsp
 public class CookieServlet extends HttpServlet {
 
     @Override
@@ -34,7 +35,20 @@ public class CookieServlet extends HttpServlet {
 //            resp.addCookie(new Cookie("categoriePrefer","panda"));
 //            
 //            resp.addCookie(new Cookie("pageWorld", "http://blabla"));
-        resp.addCookie(new Cookie("pseudo", "548"));
+//        resp.addCookie(new Cookie("pseudo", "548"));
+
+        
+       // resp.sendRedirect("_Template.jsp");
+        
+       
+        Cookie monStyle = new Cookie("style", req.getParameter("style"));
+        monStyle.setMaxAge(100000000);
+        resp.addCookie(monStyle);
+        
+        resp.sendRedirect("_Template.jsp");
+        
+        /*req.setAttribute("datact",LocalDateTime.now().toString());
+        req.getRequestDispatcher("_StyleSheets.jsp").forward(req, resp);*/
     }
     
     
