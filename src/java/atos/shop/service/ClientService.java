@@ -28,4 +28,9 @@ public class ClientService {
 
     }
     
+    public Client findLogMdp(String log,String mdp){
+        
+        return cltdao.findClient(log, mdp);
+        
+    }
 }

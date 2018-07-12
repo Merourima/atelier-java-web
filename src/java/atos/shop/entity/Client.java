@@ -30,7 +30,8 @@ public class Client implements Serializable {
     private Integer codePost;
     private String login;
     private String motDePasse;
-
+    
+    
     public String getPrenom() {
         return prenom;
     }

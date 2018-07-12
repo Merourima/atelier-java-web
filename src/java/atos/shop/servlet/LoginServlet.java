@@ -19,44 +19,40 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrateur
  */
-@WebServlet(name = "AjouterClientServlet", urlPatterns = {"/Inscription"})
-public class AjouterClientServlet extends HttpServlet {
+@WebServlet(name = "LoginServlet", urlPatterns = {"/Login"})//le mot qui s'affiche à la barre du nav
+public class LoginServlet extends HttpServlet {
 
-    private ClientService serviceClit = new ClientService();
+        private ClientService serviceCLT = new ClientService();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            
-        String nom = req.getParameter("nom");
-        String prénom = req.getParameter("prenom");
-        String adresse = req.getParameter("adresse");
-        Integer numRue = Integer.parseInt(req.getParameter("numRue"));
-        Integer codePost = Integer.parseInt(req.getParameter("codePost"));
+
         String login = req.getParameter("login");
         String motDePasse = req.getParameter("motDePasse");
         
-        Client client = new Client();
+        Client clt = serviceCLT.findLogMdp(login, motDePasse);
         
-        client.setNom(nom);
-        client.setPrénom(prénom);
-        client.setAdresse(adresse);
-        client.setNumRue(numRue);
-        client.setCodePost(codePost);
-        client.setLogin(login);
-        client.setMotDePasse(motDePasse);
-        
-        serviceClit.ajouter(client);
-        
-        //resp.sendRedirect(nom);
-        
+        if (clt == null) {// si le client n'existe pas
+            // renvoie vers la page de login,car pas trouvé
+            throw new RuntimeException("Compte n'existe pas, Click sur l'Onglet INSCRIPTION pour créer un compte ");
+            
+            //resp.sendRedirect("LoginTemp.jsp");
+
+        } else { //Trouvé
+            //enregistre client en session
+            req.getSession().setAttribute("clientConnecte", clt);
+            resp.sendRedirect("CompteClient.jsp");
+
+        }
     }
-    
-    
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            req.getRequestDispatcher("ajouter-client.jsp").forward(req, resp);
-                    }
+        
+        req.getRequestDispatcher("LoginTemp.jsp").forward(req, resp);
+
+    }
     
-    
+
+        
 }

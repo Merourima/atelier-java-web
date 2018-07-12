@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrateur
  */
-@WebServlet(name = "CookieServlet", urlPatterns = {"/CookieServlet"}) //_Template.jsp
+@WebServlet(name = "CookieServlet", urlPatterns = {"/CookieServlet"}) //
 public class CookieServlet extends HttpServlet {
 
     @Override

@@ -8,6 +8,7 @@ package atos.shop.dao;
 import atos.shop.entity.Client;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -28,9 +29,20 @@ public class ClientDAO {
     public List<Client> recupererUtilisateur() {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         Query query = em.createQuery("SELECT c FROM Client c");
-        
+
         return query.getResultList();
 
     }
-        
+
+    public Client findClient(String login, String mdp) {
+        try {
+            EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+            return (Client) em.createQuery("SELECT c FROM Client c WHERE c.motDePasse=:motDp AND c.login=:log").setParameter("motDp", mdp)
+                    .setParameter("log", login).getSingleResult();
+        } catch (Exception e) {
+
+            return null;
+        }
+
+    }
 }
