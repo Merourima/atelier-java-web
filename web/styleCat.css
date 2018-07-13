@@ -39,6 +39,7 @@ input{
 }
 .mainBox{
     width: 50%;
+    height: 800px;
     /*padding-left: 40%;*/
     border: 1px solid #d43972;
     text-align: center;

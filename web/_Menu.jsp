@@ -27,12 +27,11 @@
                         
 
                     </c:when>
-                    <c:when test="${clientConnecte ne null}">
+                    <c:otherwise>
                         <li><a href="<c:url value="/Compte"/>">Mon Compte</a></li>
                         <li><a href="<c:url value="/LogOut"/>">Logout</a></li>
-                        
-                    </c:when>
-                    <c:otherwise></c:otherwise>
+                        Salut ${clientConnecte.login}
+                    </c:otherwise>    
                 </c:choose>
 
 

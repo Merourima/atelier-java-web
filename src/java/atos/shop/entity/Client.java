@@ -6,6 +6,7 @@
 package atos.shop.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,7 +32,7 @@ public class Client implements Serializable {
     private String login;
     private String motDePasse;
     
-    
+    //@Column unique login;
     public String getPrenom() {
         return prenom;
     }
